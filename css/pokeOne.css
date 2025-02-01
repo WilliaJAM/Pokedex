@@ -1,0 +1,113 @@
+#tableMoves{
+    width: 700px;
+    height: auto;
+    font-size: 15px;
+
+    margin: 0 auto;
+}
+
+#tableMoves > table >thead > tr > th {
+    text-align: center;
+}
+#buttonChageAparence{
+    width: 100px;
+    height: 35px;
+    font-size: 12px;
+}
+
+#pokemonContent > h4{
+    height: 25px;
+    width: 100px;
+    margin: 0 auto;
+
+}
+footer{
+  border: 1px solid;
+}
+.navigationIcons{
+display: flex;
+justify-content: space-between;
+padding: 10px;
+}
+
+.icon{
+  width: 40px;
+  height: 40px;
+}
+.badge {
+    display: inline-block;
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+    background-color: #007bff; 
+    border-radius: 12px;
+  }
+
+
+  .Normal {
+    background-color: #6c757d; 
+  }
+
+  .Fire {
+    background-color: rgb(233, 48, 48);
+  }
+
+  .Water {
+    background-color: #2461e4; 
+  }
+
+
+  .Grass {
+    background-color: #2cb83f;
+
+  }
+
+  .Electric {
+    background-color: rgb(238, 241, 45);
+    color: #212529;
+  }
+
+  .Ice{
+    background-color: #3dd5e0;
+
+  }
+
+  .Fighting {
+    background-color: orangered;
+  }
+
+  .Poison{
+    background-color: #5c1a70;
+  }
+
+  .Ground{
+    background-color: rgb(133, 88, 47);
+  }
+  .Flying{
+    background-color: #79aee6;
+  }
+.Psychic{
+    background-color: #d343a8;
+}
+.Bug{
+    background-color: #2edf36;
+}
+.Rock{
+    background-color: #412c14;
+}
+.Ghost{
+    background-color: #9c0eaf;
+}
+.Dragon{
+    background-color: #b755e4;
+}
+.Dark{
+    background-color: rgb(56, 55, 55);
+}
+.Steel{
+    background-color: rgb(126, 122, 122);
+}
+.Fairy{
+    background-color: rgb(247, 149, 222);
+}
