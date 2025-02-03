@@ -7,9 +7,13 @@
         console.error('No hay datos en la api');
     }
 
+        const placeLogo = document.getElementById('pokedexLogo')
+        const logo = document.createElement('img');
+        logo.src = '../../assets/icons/pokedex.png'
+        logo.alt = 'Pokédex'
+        appendChildFunction(placeLogo, logo)
+
         const pokemon = data.results;
-        // console.table(pokemon);
-        // console.log(pokemon);
         const filas = document.getElementById('row');
         const columnas = document.getElementById('colum');
         pokemon.forEach(element => {

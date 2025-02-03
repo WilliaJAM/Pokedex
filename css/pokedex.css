@@ -16,6 +16,21 @@ div[class="card"]{
     align-items: center;
     
 }
+#pokedexLogo{
+  display: flex;
+  justify-content: center;
+}
+
+#pokedexLogo > img {
+  width: 300px;
+  transition: transform 0.3s ease;
+  padding: 10px;
+}
+
+#pokedexLogo > img:hover{
+  transform: rotate(10deg);
+}
+
 
 .badge {
     display: inline-block;

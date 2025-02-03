@@ -82,6 +82,8 @@ if(!idPokemon || idPokemon.trim()=== ''){
 
     if(data.sprites.other.showdown.front_default == null && data.sprites.other.showdown.back_default == null){
         imgFront.src = data.sprites.front_default
+        imgFront2.src = data.sprites.front_shiny
+        button.style.visibility = "hidden"
     }
 
     let toggle = false;    
@@ -209,7 +211,7 @@ if(!idPokemon || idPokemon.trim()=== ''){
 
         // Datos y configuración
         const labels = ["PS", "Ataque", "Defensa", "Ataque Espacial", "Defensa Especial", "Velocidad"];
-        const valores = []; // Valores en porcentaje (0-100)
+        const valores = [];
         data.stats.forEach(element => {
             valores.push(element.base_stat)
         });
@@ -289,13 +291,18 @@ if(!idPokemon || idPokemon.trim()=== ''){
             if (idPokemon == 1) {
                 alert('No hay mas');
             }else{
-                const id = idPokemon - 1
+                const id = parsedId - 1
             idPokemon = localStorage.setItem('temporalyPokeInfo', id);
             location.reload();
             }
             
         })
         next.addEventListener('click', ()=>{
+            if(idPokemon == 10279){
+                alert('as')
+            }else{
+
+            }
             const id = parsedId + 1
 
             idPokemon = localStorage.setItem('temporalyPokeInfo', id)
@@ -321,12 +328,6 @@ function elementHtml(element) {
     return elementHtmlDOM
 }
 
-function eventListener(element, event, varible) {
-    element.addEventListener(event, ()=>{
-        varible = !varible
-        console.log(varible);
-    })
-}
 
 const pokemonTypesEnglish = [
     "Normal", "Fire", "Water", "Grass", "Electric", 
@@ -341,12 +342,5 @@ const pokemonTypesSpanish = [
     "Psíquico", "Bicho", "Roca", "Fantasma", "Dragón", 
     "Siniestro", "Acero", "Hada"
 ];
-
-// let txt = 'hola';
-
-// //Se reemplaza el string original por el nuevo string cambiado.
-// txt =  txt.replace('h', 'H');
-
-// console.log(txt);
-
-//entender como se sincroniza la descripcion con los nombres.
+//Navogation en la parte de arriba falta
+//Terminar de decorar la pagina con css

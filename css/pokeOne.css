@@ -21,18 +21,31 @@
     margin: 0 auto;
 
 }
-footer{
-  border: 1px solid;
-}
+
 .navigationIcons{
 display: flex;
 justify-content: space-between;
 padding: 10px;
 }
-
+#pokemonContent > img {
+width: 170px;
+}
 .icon{
   width: 40px;
   height: 40px;
+  border-radius: 100%;
+  padding: 5px;
+}
+.icon:hover{
+  cursor: pointer;
+  background-color: #72717186;
+  transition: all;
+  transition-duration: 0.5s;
+}
+
+h1{
+  text-align: center;
+  margin: 5px;
 }
 .badge {
     display: inline-block;
