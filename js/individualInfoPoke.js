@@ -39,8 +39,9 @@ if(!idPokemon || idPokemon.trim()=== ''){
     headerType1.innerHTML = firstLetterUpperCase(data.name);
 
 
-
-    const pokemonContentHtml = document.getElementById('pokemonContent');
+    const pokemonFotage = document.getElementById('imagePokemon');
+    const typePokemon = document.getElementById('typesPokemon');
+    const buttonShiny = document.getElementById('buttonShinyVersion')
 
     //Para traducir el tipo del pokemon
     const headerType4 = elementHtml('h4');
@@ -66,12 +67,12 @@ if(!idPokemon || idPokemon.trim()=== ''){
             headerType4.className = `badge ${applyClassCss(data.types[0].type.name)}`
             headerType4SecondTypePokemon.className = `badge ${applyClassCss(data.types[1].type.name)}`
 
-            appendChild(pokemonContentHtml, headerType4SecondTypePokemon)
+            appendChild(typePokemon, headerType4SecondTypePokemon)
         }else{
             headerType4.textContent = `${typeTraduced(data.types[0].type.name)}`
             headerType4.className = `badge ${applyClassCss(data.types[0].type.name)}`
         }
-        appendChild(pokemonContentHtml, headerType4);
+        appendChild(typePokemon, headerType4);
 
     const imgFront = document.createElement('img');
     const imgFront2 = document.createElement('img');
@@ -105,13 +106,19 @@ if(!idPokemon || idPokemon.trim()=== ''){
         }
     })
 
-    appendChild(pokemonContentHtml, imgFront);
-    appendChild(pokemonContentHtml, imgFront2);
-    appendChild(pokemonContentHtml, button);
+    appendChild(pokemonFotage, imgFront);
+    appendChild(pokemonFotage, imgFront2);
+    appendChild(buttonShiny, button);
 
 
 
     const movesPokemon = data.moves;
+
+    //Titulo de la tabla de movimiento
+    const titleTable = document.getElementById("titleTable");
+    const titleOfTheTable = elementHtml("h2");
+    titleOfTheTable.innerHTML = "Tabla de movimiento"
+    appendChild(titleTable, titleOfTheTable)
 
     //Elementos de la tabla
     const division = document.getElementById('tableMoves')
@@ -207,7 +214,13 @@ if(!idPokemon || idPokemon.trim()=== ''){
     });
         //Estadisticas del pokemon
     const canvas = document.getElementById("radarChart");
-        const ctx = canvas.getContext("2d");
+    const titleOfTheStats = elementHtml("h2")
+    const idOfTheDivStatsPokemon = document.getElementById("title");
+
+    titleOfTheStats.innerHTML = "Estadisticas base"
+    appendChild(idOfTheDivStatsPokemon , titleOfTheStats);
+
+    const ctx = canvas.getContext("2d");
 
         // Datos y configuración
         const labels = ["PS", "Ataque", "Defensa", "Ataque Espacial", "Defensa Especial", "Velocidad"];
@@ -215,11 +228,11 @@ if(!idPokemon || idPokemon.trim()=== ''){
         data.stats.forEach(element => {
             valores.push(element.base_stat)
         });
-        const maxValor = 150;
+        const maxValor = 200;
         const numLíneas = 5; // Niveles en la malla
         const centroX = canvas.width / 2;
         const centroY = canvas.height / 2;
-        const radioMax = 120; // Radio máximo de la gráfica
+        const radioMax = 130; // Radio máximo de la gráfica
 
         // Dibujar malla de la gráfica
         ctx.strokeStyle = "#aaa";

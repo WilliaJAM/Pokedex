@@ -1,5 +1,5 @@
 #tableMoves{
-    width: 700px;
+    width: 1000px;
     height: auto;
     font-size: 15px;
 
@@ -9,17 +9,14 @@
 #tableMoves > table >thead > tr > th {
     text-align: center;
 }
+#titleTable {
+  text-align: center;
+  margin: 10px;
+}
 #buttonChageAparence{
     width: 100px;
     height: 35px;
     font-size: 12px;
-}
-
-#pokemonContent > h4{
-    height: 25px;
-    width: 100px;
-    margin: 0 auto;
-
 }
 
 .navigationIcons{
@@ -53,6 +50,18 @@ h1{
   text-align: center;
   margin: 5px;
 }
+#imagePokemon > img{
+  width: 150px;
+}
+
+#typesPokemon{
+  width: 100px;
+}
+#typesPokemon > h4{
+  display: flex;
+  justify-content: center;
+}
+
 .badge {
     display: inline-block;
     padding: 5px 10px;
