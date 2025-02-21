@@ -304,23 +304,20 @@ if(!idPokemon || idPokemon.trim()=== ''){
             if (idPokemon == 1) {
                 alert('No hay mas');
             }else{
-                const id = parsedId - 1
-            idPokemon = localStorage.setItem('temporalyPokeInfo', id);
+            const id = parsedId - 1
+            localStorage.setItem('temporalyPokeInfo', id);
             location.reload();
             }
             
         })
         next.addEventListener('click', ()=>{
             if(idPokemon == 10279){
-                alert('as')
+                alert('Llegaste al limite')
             }else{
-
-            }
             const id = parsedId + 1
-
-            idPokemon = localStorage.setItem('temporalyPokeInfo', id)
-            
+            localStorage.setItem('temporalyPokeInfo', id)
             location.reload();
+            }
         })
 });
 
@@ -341,7 +338,6 @@ function elementHtml(element) {
     return elementHtmlDOM
 }
 
-
 const pokemonTypesEnglish = [
     "Normal", "Fire", "Water", "Grass", "Electric", 
     "Ice", "Fighting", "Poison", "Ground", "Flying", 
@@ -355,5 +351,6 @@ const pokemonTypesSpanish = [
     "Psíquico", "Bicho", "Roca", "Fantasma", "Dragón", 
     "Siniestro", "Acero", "Hada"
 ];
-//Navogation en la parte de arriba falta
-//Terminar de decorar la pagina con css
+//Mostrar las habilidades ocultas en pantalla con info en español
+//basicamente hacer como tenemos con los moviminetos usar la misma función.
+

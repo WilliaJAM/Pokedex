@@ -32,8 +32,8 @@
 
             
             linkButton.innerHTML = "Acerca de este pokemon";
-            linkButton.className = "openModal"
-            linkButton.className = "btn btn-success";
+            linkButton.className = "btn btn-primary"
+            linkButton.id = "accessToInfo"
 
             appendChildFunction(divCardBody, headerType5);
             appendChildFunction(divCardBody, linkButton);

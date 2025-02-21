@@ -1,7 +1,14 @@
-h1{
-    text-align: center;
 
+#accessToInfo{
+  background-color: #5759c2;
+  border: #5759c2;
+  transition: all;
+  transition-duration: 0.3s;
 }
+#accessToInfo:hover{
+  background-color: #212529;
+}
+
 
 div > img {
     width: 150px;
@@ -10,11 +17,12 @@ div > img {
 
 div[class="card"]{
     width: 300px;
-    margin : 10px;
+    margin : 18px;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: transform 0.2s ease;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
 }
 #colum{
   display: flex;
