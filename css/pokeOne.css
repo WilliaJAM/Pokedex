@@ -1,27 +1,33 @@
   @import url('https://fonts.cdnfonts.com/css/pokemon-solid');
   
+:root{
+  --pokeball-red : #eb2424;
+  --pokeball-black : #222224;
+  --pokeball-gray : #f1eaea;
+}
+ 
 #topPokeballBackground{
-  background-color: #eb2424;
+  background-color: var(--pokeball-red);
   padding: 10px;
 }
 
 #middlePokeballBacGround{
-  background-color: #222224;
-  height:100px ;
+  background-color: var(--pokeball-black);
+  height:140px ;
 
 }
 
 #endPokeballBackGround{
-  background-color: #ee0000;
-  height: auto;
-
+  background-color: var(--pokeball-gray);
+  padding: 1px;
 }
 
 #tableMoves  {
     width: 1000px;
     font-size: 15px;
-    box-shadow: 5px 5px 5px 5px rgb(0, 0, 0, 0.5);
     margin: 0 auto;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.5);
+    background-color: var();
 
 }
 
@@ -35,27 +41,25 @@
 #buttonShinyVersion{
   margin: 0 auto;
   width: 105px;
+
 }
 
 #buttonChageAparence{
   background-color: #d8d0d0;
   border: #d8d0d0;
-  color: black;
 
     width: 100px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    height: 35px;
-    font-size: 12px;
+    height: 100px;
+    margin: 20px auto;
     transition:all;
+    border-radius: 100%;
     transition-duration: 0.5s ;
     transform: translate(2px);
+
 }
 #buttonChageAparence:hover{
   background-color: rgb(54, 55, 56);
   border: rgb(54, 55, 56);
-  color: white;
-
 }
 
 .navigationIcons{
@@ -63,7 +67,7 @@ display: flex;
 justify-content: space-between;
 padding: 10px;
 
-background-color: #eb2424;
+background-color: var(--pokeball-red);
 
 }
 
@@ -81,7 +85,7 @@ background-color: #eb2424;
   transition-duration: 0.5s;
 }
 
-h1{
+#namePokemon{
   font-family: 'Pokemon Solid', sans-serif;
   margin: 0 auto;
   text-align: center;
