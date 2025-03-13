@@ -87,6 +87,12 @@ if(!idPokemon || idPokemon.trim()=== ''){
        updateImg()
     })
 
+    if(avule == null && avule2 == null){
+        imgFront.src = data.sprites.front_default
+        imgFront2.src = data.sprites.front_shiny
+        button.disabled = true
+    }
+
     appendChild(pokemonFotage, imgFront);
     appendChild(pokemonFotage, imgFront2);
     appendChild(buttonShiny, button);
@@ -161,15 +167,11 @@ if(!idPokemon || idPokemon.trim()=== ''){
         th5.scope = 'col'
         th5.textContent = 'PP'
 
-        td.textContent = moveTraduced
-
-        td2.textContent= accessInfor
-
-        td3.textContent = `${data.accuracy === null ?  0 : data.accuracy}`;
-
-        td4.textContent = `${data.power === null ? 0 : data.power}`
-
-        td5.textContent = `${data.pp}`
+        textContentFunction(td, moveTraduced, trNumber2);
+        textContentFunction(td2, accessInfor, trNumber2);
+        textContentFunction(td3, `${data.accuracy === null ?  0 : data.accuracy}`, trNumber2);
+        textContentFunction(td4,`${data.power === null ? 0 : data.power}`, trNumber2 );
+        textContentFunction(td5,`${data.pp}`, trNumber2 );
 
         //Encabezado de la tabla
         appendChild(trNumber1,th)
@@ -180,13 +182,7 @@ if(!idPokemon || idPokemon.trim()=== ''){
         appendChild(tHead, trNumber1)
 
         //Cuerpo de la tabla
-        appendChild(trNumber2, td)
-        appendChild(trNumber2, td2)
-        appendChild(trNumber2, td3)
-        appendChild(trNumber2, td4)
-        appendChild(trNumber2, td5)
         appendChild(tBody, trNumber2)
-
         appendChild(table, tBody)
         appendChild(table, tHead)
         appendChild(division, table)
@@ -201,6 +197,53 @@ if(!idPokemon || idPokemon.trim()=== ''){
     titleOfTheStats.innerHTML = "Estadisticas base"
     appendChild(idOfTheDivStatsPokemon , titleOfTheStats);
 
+    const hiddenAbilities = data.abilities
+
+    const idShowInfo = document.getElementById('abilitiesHidden')
+    const h1V1 = elementHtml('h3');
+    const h1V2 = elementHtml('h3');
+    const h1V3 = elementHtml('h3');
+    const abilitiesArray = [];
+
+
+    hiddenAbilities.forEach(element => {
+        console.log(element.ability.url);
+
+        abilitiesArray.push(element.ability.name);
+    
+            if(!element?.ability?.name){
+                console.error('No hay info');
+            }else{
+                switch (hiddenAbilities.length) {
+                    case 3:
+                        textContentFunction(h1V1, abilitiesArray[0], idShowInfo);
+                        textContentFunction(h1V2, abilitiesArray[1], idShowInfo);
+                        textContentFunction(h1V3, abilitiesArray[2], idShowInfo);
+                        break;
+                    case 2:
+                        textContentFunction(h1V1, abilitiesArray[0], idShowInfo);
+                        textContentFunction(h1V2, abilitiesArray[1], idShowInfo);
+                    break;
+                    default:
+                        console.warn('error');
+                        break;
+                }
+            }
+            fetch(element.ability.url)
+            .then(response => response.json())
+            .then(data =>{
+                if (!data) {
+                    throw new Error ('No hay datos')
+                }
+
+                if(typeof data !== 'object'){
+                    throw new Error('No es un objeto valido')
+                }   
+                console.log(data.flavor_text_entries);
+                const find = data.flavor_text_entries.find(element => element.language.name === 'es')
+                console.log(find.flavor_text);
+            })
+    });
     const ctx = canvas.getContext("2d");
 
         // Datos y configuración
@@ -317,6 +360,11 @@ function firstLetterUpperCase(string) {
 function elementHtml(element) {
     const elementHtmlDOM = document.createElement(element); 
     return elementHtmlDOM
+}
+
+function textContentFunction(element, textContent, elementHtml) {
+    appendChild(elementHtml, element)
+    return element.textContent = `${textContent}`
 }
 
 const pokemonTypesEnglish = [

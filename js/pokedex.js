@@ -7,14 +7,14 @@
         console.error('No hay datos en la api');
     }
 
+    console.log(data)
         const placeLogo = document.getElementById('pokedexLogo')
         const logo = document.createElement('img');
-        logo.src = '../../assets/icons/pokedex.png'
+        logo.src = '../../assets/icons/pokedex-removebg-preview.png'
         logo.alt = 'Pokédex'
         appendChildFunction(placeLogo, logo)
 
         const pokemon = data.results;
-        const filas = document.getElementById('row');
         const columnas = document.getElementById('colum');
         pokemon.forEach(element => {
             const divCard = document.createElement('div');
