@@ -78,32 +78,13 @@ if(!idPokemon || idPokemon.trim()=== ''){
     const imgFront2 = document.createElement('img');
     const button = document.createElement('button')
 
-    imgFront.src = data.sprites.other.showdown.front_default;
-    imgFront2.src = data.sprites.other.showdown.back_default;
-
-    if(data.sprites.other.showdown.front_default == null && data.sprites.other.showdown.back_default == null){
-        imgFront.src = data.sprites.front_default
-        imgFront2.src = data.sprites.front_shiny
-        button.style.visibility = "hidden"
-    }
-
-    let toggle = false;    
-    button.textContent= 'Version Shiny'
-    button.className= 'btn btn-primary' 
-    button.id= 'buttonChageAparence'
+    
 
 
     // Para la img 1 de la pagina
     button.addEventListener('click',()=>{
-        if(toggle == false){
-            imgFront.src = data.sprites.other.showdown.front_shiny;
-            imgFront2.src = data.sprites.other.showdown.back_shiny;
-            toggle = true
-        }else if(toggle == true){
-            imgFront.src = data.sprites.other.showdown.front_default;
-            imgFront2.src = data.sprites.other.showdown.back_default;
-            toggle = false
-        }
+       isShiny = !isShiny;
+       updateImg()
     })
 
     appendChild(pokemonFotage, imgFront);
