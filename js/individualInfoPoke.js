@@ -76,22 +76,30 @@ if(!idPokemon || idPokemon.trim()=== ''){
 
     const imgFront = document.createElement('img');
     const imgFront2 = document.createElement('img');
-    const button = document.createElement('button')
+    const button = document.createElement('button');
 
-    
+    button.id = 'buttonChageAparence';
 
+    let isShiny = false;
+    function updateImg() {
+        const front= isShiny ? data.sprites.other.showdown.front_shiny :data.sprites.other.showdown.front_default
+        const back= isShiny ? data.sprites.other.showdown.back_shiny :data.sprites.other.showdown.back_default
+        imgFront.src = front;
+        imgFront2.src = back;
+    }
+
+    if(data.sprites.other.showdown.front_default == null && data.sprites.other.showdown.back_default == null){
+        imgFront.src = data.sprites.front_default
+        imgFront2.src = data.sprites.front_shiny
+        button.disabled = true
+    }
 
     // Para la img 1 de la pagina
     button.addEventListener('click',()=>{
        isShiny = !isShiny;
        updateImg()
     })
-
-    if(avule == null && avule2 == null){
-        imgFront.src = data.sprites.front_default
-        imgFront2.src = data.sprites.front_shiny
-        button.disabled = true
-    }
+    updateImg()
 
     appendChild(pokemonFotage, imgFront);
     appendChild(pokemonFotage, imgFront2);
@@ -207,10 +215,9 @@ if(!idPokemon || idPokemon.trim()=== ''){
 
 
     hiddenAbilities.forEach(element => {
-        console.log(element.ability.url);
 
         abilitiesArray.push(element.ability.name);
-    
+        console.log(abilitiesArray);
             if(!element?.ability?.name){
                 console.error('No hay info');
             }else{
@@ -224,11 +231,15 @@ if(!idPokemon || idPokemon.trim()=== ''){
                         textContentFunction(h1V1, abilitiesArray[0], idShowInfo);
                         textContentFunction(h1V2, abilitiesArray[1], idShowInfo);
                     break;
+                    case 1 :
+                        textContentFunction(h1V1, abilitiesArray[0], idShowInfo);
+                        break;
                     default:
                         console.warn('error');
                         break;
                 }
             }
+            console.log(element);
             fetch(element.ability.url)
             .then(response => response.json())
             .then(data =>{
@@ -239,8 +250,8 @@ if(!idPokemon || idPokemon.trim()=== ''){
                 if(typeof data !== 'object'){
                     throw new Error('No es un objeto valido')
                 }   
-                console.log(data.flavor_text_entries);
-                const find = data.flavor_text_entries.find(element => element.language.name === 'es')
+                
+                const find = data.flavor_text_entries.find(element => element.language.name === 'es');
                 console.log(find.flavor_text);
             })
     });
